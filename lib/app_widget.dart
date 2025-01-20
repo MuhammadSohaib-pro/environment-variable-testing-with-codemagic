@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 import './config_reader.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter CI with Codemagic',
       theme: ThemeData(
-        // primarySwatch: Provider.of<Color>(context),
-      ),
-      home: MyHomePage(title: 'Flutter CI with Codemagic'),
+          // primarySwatch: Provider.of<Color>(context),
+          ),
+      home: const MyHomePage(title: 'Flutter CI with Codemagic'),
     );
   }
 }
@@ -45,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Text(
@@ -62,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
