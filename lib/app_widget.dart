@@ -1,9 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:environment_variables_testing_codemagic/environment_variable_service.dart';
 import 'package:environment_variables_testing_codemagic/service_locator.dart';
 import 'package:flutter/material.dart';
-
-import './config_reader.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -41,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      _counter += ConfigReader.getIncrementAmount();
+      _counter += EnvironmentVariableService.environment == 'dev' ? 5 : 1;
     });
   }
 
@@ -49,7 +48,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: getIt<MaterialColor>(),
         title: Text(widget.title),
       ),
       body: Center(
@@ -64,7 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              'Revealed secret:\n${ConfigReader.getSecretKey()}',
+              'Token Url:\n${EnvironmentVariableService.tokelUrl}',
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              'Graph QL Url:\n${EnvironmentVariableService.graphqlUrl}',
               textAlign: TextAlign.center,
             ),
           ],
