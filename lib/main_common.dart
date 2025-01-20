@@ -21,5 +21,6 @@ Future<void> mainCommon(String env) async {
   }
 
   setupServiceLocator(primaryColor);
+
   runApp(const MyApp());
 }
