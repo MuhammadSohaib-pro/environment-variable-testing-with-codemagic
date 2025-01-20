@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:environment_variables_testing_codemagic/service_locator.dart';
 import 'package:flutter/material.dart';
 
 import './config_reader.dart';
@@ -12,8 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter CI with Codemagic',
       theme: ThemeData(
-          // primarySwatch: Provider.of<Color>(context),
-          ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: getIt<MaterialColor>(),
+          foregroundColor: Colors.white,
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: getIt<MaterialColor>(),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Flutter CI with Codemagic'),
     );
   }
@@ -41,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // backgroundColor: getIt<MaterialColor>(),
         title: Text(widget.title),
       ),
       body: Center(

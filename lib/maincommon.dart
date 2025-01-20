@@ -8,7 +8,7 @@ Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
   await ConfigReader.initialize();
 
-  Color primaryColor;
+  MaterialColor primaryColor;
   switch (env) {
     case Environment.dev:
       primaryColor = Colors.blue;
@@ -22,5 +22,5 @@ Future<void> mainCommon(String env) async {
 
   setupServiceLocator(env, primaryColor);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }

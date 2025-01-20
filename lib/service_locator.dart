@@ -4,6 +4,6 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-void setupServiceLocator(String env, Color primaryColor) {
-  getIt.registerSingleton<Color>(primaryColor);
+void setupServiceLocator(String env, MaterialColor primaryColor) {
+  getIt.registerSingleton<MaterialColor>(primaryColor);
 }
