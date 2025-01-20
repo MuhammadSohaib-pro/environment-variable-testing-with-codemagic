@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:environment_variables_testing_codemagic/environment_variable_service.dart';
+import 'package:environment_variables_testing_codemagic/config_reader.dart';
 import 'package:environment_variables_testing_codemagic/service_locator.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      _counter += EnvironmentVariableService.environment == 'dev' ? 5 : 1;
+      _counter += ConfigReader.getIncrementAmount();
     });
   }
 
@@ -62,11 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             Text(
-              'Token Url:\n${EnvironmentVariableService.tokelUrl}',
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              'Graph QL Url:\n${EnvironmentVariableService.graphqlUrl}',
+              'Revealed secret:\n\n${ConfigReader.getSecretKey()}',
               textAlign: TextAlign.center,
             ),
           ],

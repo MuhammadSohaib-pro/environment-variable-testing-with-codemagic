@@ -1,18 +1,19 @@
 import 'package:environment_variables_testing_codemagic/app_widget.dart';
-import 'package:environment_variables_testing_codemagic/environment_variable_service.dart';
+import 'package:environment_variables_testing_codemagic/config_reader.dart';
+import 'package:environment_variables_testing_codemagic/environment.dart';
 import 'package:environment_variables_testing_codemagic/service_locator.dart';
 import 'package:flutter/material.dart';
 
-void main() async {
+Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EnvironmentVariableService.initialize();
-  EnvironmentVariableService.validateConfig();
+  await ConfigReader.initialize();
+
   MaterialColor primaryColor;
-  switch (EnvironmentVariableService.environment) {
-    case "dev":
+  switch (env) {
+    case Environment.dev:
       primaryColor = Colors.blue;
       break;
-    case "prod":
+    case Environment.prod:
       primaryColor = Colors.red;
       break;
     default:
