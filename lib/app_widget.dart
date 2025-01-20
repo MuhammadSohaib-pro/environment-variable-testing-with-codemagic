@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // _counter += ConfigReader.getIncrementAmount();
+      _counter += ConfigReader.getIncrementAmount();
     });
   }
 
@@ -61,10 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            // Text(
-            //   'Revealed secret:\n\n${ConfigReader.getSecretKey()}',
-            //   textAlign: TextAlign.center,
-            // ),
+            Text(
+              'Revealed secret:\n\n${ConfigReader.getSecretKey()}',
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
