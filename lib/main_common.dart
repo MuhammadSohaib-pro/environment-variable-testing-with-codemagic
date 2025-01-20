@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ConfigReader.initialize();
+  // await ConfigReader.initialize();
 
   MaterialColor primaryColor;
   switch (env) {
