@@ -4,11 +4,11 @@ import 'package:environment_variables_testing_codemagic/environment.dart';
 import 'package:environment_variables_testing_codemagic/service_locator.dart';
 import 'package:flutter/material.dart';
 
-void main() async {
+Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ConfigReader.initialize();
+
   MaterialColor primaryColor;
-  const env =
-      String.fromEnvironment('Environment', defaultValue: 'development');
   switch (env) {
     case Environment.dev:
       primaryColor = Colors.blue;
@@ -19,8 +19,6 @@ void main() async {
     default:
       primaryColor = Colors.yellow;
   }
-
   setupServiceLocator(primaryColor);
-  await ConfigReader.initialize();
   runApp(const MyApp());
 }
